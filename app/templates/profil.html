@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% for message in get_flashed_messages() %}
+    <span class="text-danger">{{ message }}</span>
+{% endfor %}
+nama : {{data.nama}} <br>
+umur : {{data.umur}}
+<button class="btn btn-primary">MASUK KE DALAM GAME</button>
+{% endblock %}

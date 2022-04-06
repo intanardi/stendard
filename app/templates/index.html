@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% for message in get_flashed_messages() %}
+    <span class="text-danger">{{ message }}</span>
+{% endfor %}
+<form action="" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="file" class="form-control" name="myfile" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+{% endblock %}

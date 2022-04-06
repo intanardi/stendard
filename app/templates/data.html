@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h4>
+    DATA
+</h4>
+<table class="table">
+    <tr>
+        <th>Document</th>
+        <th>Created Date</th>
+        <th>Updated Date</th>
+        <th>Action</th>
+    </tr>
+    {% for dt in data %}
+    <tr>
+        <td>{{ dt.filename }}</td>
+        <td>{{ dt.created_date }}</td>
+        <td>{{ dt.updated_date }}</td>
+        <td>
+            <a href="{{ url_for('main.update', id=dt.id) }}" class="btn btn-success">EDIT</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
