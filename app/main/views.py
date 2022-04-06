@@ -21,7 +21,7 @@ client = Client(options)
 client.session.auth = HttpNtlmAuth('http://localhost:5000\\username','password')
 
 
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = 'app/static/uploads/'
 apps = Flask(__name__)
 apps.config['UPLOAD_PATH'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'docx', 'xlsx', 'pptx', 'xls'}
@@ -43,6 +43,8 @@ def index():
         if myfile.filename == '':
             flash('No selected file')
             return redirect(request.url)
+        print(myfile.filename)
+        print(apps.config['UPLOAD_PATH'])
         # get_extension = myfile.filename.split(".")
         # myfilename = str(random.randint(1, 100000))
         # myfilename = myfilename+ '.'+ str(get_extension[-1])
