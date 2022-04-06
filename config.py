@@ -18,7 +18,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     # MONGO_URI = "mongodb://localhost:27017/example_data"
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/stendard_db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:@localhost/stendard_db'
 
 config = {
     'development' : DevelopmentConfig
