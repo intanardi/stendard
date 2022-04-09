@@ -15,6 +15,7 @@ from requests_ntlm import HttpNtlmAuth
 
 options = {
  'webdav_hostname': "https://192.168.23.129",
+ 'proxy_hostname':  "http://127.0.0.1:8000",
  'webdav_login':    "ardi",
  'webdav_password': "ardi123"
 }
