@@ -15,7 +15,6 @@ from requests_ntlm import HttpNtlmAuth
 
 options = {
  'webdav_hostname': "https://192.168.23.129",
- 'proxy_hostname':  "http://127.0.0.1:8000",
  'webdav_login':    "ardi",
  'webdav_password': "ardi123"
 }
@@ -70,7 +69,7 @@ def data():
 def update(id):
     document = Document.query.filter_by(id=id).first()
     print(document.filename)
-    client.info(UPLOAD_FOLDER+document.filename)
     # os.system(UPLOAD_FOLDER+document.filename)
+    client.info(UPLOAD_FOLDER+document.filename)
     client.download_sync(remote_path=UPLOAD_FOLDER+'/'+document.filename, local_path="~/Downloads/"+document.filename)
     return redirect(url_for('main.data'))

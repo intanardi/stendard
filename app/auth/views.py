@@ -41,19 +41,3 @@ def login():
         response['result'] = access
         return response
     return "login"
-
-@auth.route('/profile', methods=['POST'])
-def update_profile():
-    if request.method == 'POST':
-        response = {}
-        form = request.get_json()
-        header = request.headers['token']
-        verify = verify_token(header)
-        if not verify:
-            response['message'] = "“Unauthenticated"
-            return response
-        user = mongo.db.user
-        user.updateOne({'user_id': verify['user_id']}, {'$set': {'first_name': form['first_name'], 'last_name': form['last_name'], 'address': form['address']}})
-        response['status'] = 'SUCCESS'
-        return response
-    return "test"
